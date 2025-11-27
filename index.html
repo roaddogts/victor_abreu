@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ETIQUETAS PARA REDES SOCIALES (WhatsApp, Facebook) -->
+    <meta property="og:title" content="In Memoriam - Sr. Víctor Francisco Abreu Cáceres">
+    <meta property="og:description" content="1952 - 2025. Empresario, líder comunitario y padre de familia ejemplar.">
+    <meta property="og:image" content="https://victorabreu.netlify.app/victor_abreu.jpg">
+    <meta property="og:url" content="https://victorabreu.netlify.app/">
+    <meta property="og:type" content="website">
+
     <title>Semblanza - Sr. Víctor Francisco Abreu Cáceres</title>
     <!-- Estilos y Herramientas -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -317,9 +325,11 @@
         // Inicializar iconos
         lucide.createIcons();
 
-        // Generar QR Code automáticamente
+        // Generar QR Code FIJO hacia la web de Netlify
         window.onload = function() {
-            var currentUrl = window.location.href;
+            // URL FIJA: Así el QR siempre funciona, incluso si imprimes desde tu PC
+            var currentUrl = "https://victorabreu.netlify.app/";
+            
             document.getElementById("qrcode").innerHTML = "";
             new QRCode(document.getElementById("qrcode"), {
                 text: currentUrl,
