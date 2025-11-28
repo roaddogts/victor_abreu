@@ -7,6 +7,7 @@
     <!-- ETIQUETAS PARA REDES SOCIALES (WhatsApp, Facebook) -->
     <meta property="og:title" content="In Memoriam - Sr. Víctor Francisco Abreu Cáceres">
     <meta property="og:description" content="1952 - 2025. Empresario, líder comunitario y padre de familia ejemplar.">
+    <!-- Asegúrate de subir la foto 'victor_abreu.jpg' a Netlify para que esta línea funcione -->
     <meta property="og:image" content="https://victorabreu.netlify.app/victor_abreu.jpg">
     <meta property="og:url" content="https://victorabreu.netlify.app/">
     <meta property="og:type" content="website">
@@ -73,7 +74,7 @@
             }
             .shadow-xl, .shadow-lg, .shadow-md { box-shadow: none !important; border: 1px solid #ddd; }
             
-            /* Ajustes para el Header en impresión (ahorrar tinta y espacio) */
+            /* Ajustes para el Header en impresión */
             .hero-bg {
                 background: none !important;
                 color: black !important;
@@ -94,19 +95,16 @@
             /* EVITAR CORTES DE PÁGINA */
             section, .break-inside-avoid, .bg-white, article {
                 break-inside: avoid;
-                page-break-inside: avoid; /* Para navegadores antiguos */
+                page-break-inside: avoid;
                 margin-bottom: 2rem;
             }
             
-            /* Forzar texto negro puro */
             p, h1, h2, h3, h4, li, span {
                 color: black !important;
             }
             
-            /* Ocultar videos al imprimir */
             iframe { display: none; }
             
-            /* Ajustes de márgenes */
             main { margin-top: 0 !important; padding-top: 0 !important; }
         }
     </style>
@@ -139,7 +137,7 @@
                 <div class="md:col-span-1">
                     <!-- FOTO DEL SR. VÍCTOR -->
                     <div class="aspect-[3/4] bg-gray-200 rounded-lg overflow-hidden shadow-inner flex items-center justify-center relative group">
-                        <!-- Asegúrate de que la imagen se llame exactamente 'victor_abreu.jpg' -->
+                        <!-- La foto debe llamarse 'victor_abreu.jpg' y estar en la misma carpeta -->
                         <img src="victor_abreu.jpg" 
                              alt="Sr. Víctor Abreu - Descansa en Paz" 
                              class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-105"
@@ -316,27 +314,54 @@
             </div>
         </section>
 
-        <!-- Sección de Video -->
-        <section class="mb-16 no-print">
-            <div class="text-center mb-6">
-                <h3 class="text-2xl font-serif text-gray-800">Video Conmemorativo</h3>
-            </div>
-            <!-- Contenedor Responsivo del Video -->
-            <div class="relative w-full max-w-4xl mx-auto pb-[56.25%] rounded-lg overflow-hidden shadow-2xl bg-black">
-                <!-- 
-                     IMPORTANTE: Si tienes un video específico, reemplaza la URL 'https://www.youtube.com/embed/...' 
-                     con la de tu video.
-                -->
-                <iframe 
-                    class="absolute top-0 left-0 w-full h-full"
-                    src="https://www.youtube.com/embed/vpd2PAaJi6g?controls=1" 
-                    title="Video Semblanza Víctor Abreu" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-        </section>
+        <!-- SECCIÓN DE VIDEOS -->
+        <div class="grid md:grid-cols-2 gap-8 mb-16 no-print">
+            
+            <!-- Video 1: Conmemorativo (En Producción) -->
+            <section>
+                <div class="text-center mb-4">
+                    <h3 class="text-xl font-serif text-gray-800 flex items-center justify-center">
+                        <i data-lucide="film" class="w-5 h-5 mr-2 text-amber-600"></i>
+                        Semblanza de Vida
+                    </h3>
+                    <p class="text-xs text-gray-500">Video Conmemorativo</p>
+                </div>
+                <div class="relative w-full pb-[56.25%] rounded-lg overflow-hidden shadow-xl bg-black">
+                    <!-- VIDEO PENDIENTE (Mantenemos el de prueba 'vpd2PAaJi6g' hasta que terminen el oficial) -->
+                    <iframe 
+                        class="absolute top-0 left-0 w-full h-full"
+                        src="https://www.youtube.com/embed/vpd2PAaJi6g?controls=1" 
+                        title="Semblanza Víctor Abreu" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </section>
+
+            <!-- Video 2: Misa de Cuerpo Presente -->
+            <section>
+                <div class="text-center mb-4">
+                    <h3 class="text-xl font-serif text-gray-800 flex items-center justify-center">
+                        <i data-lucide="church" class="w-5 h-5 mr-2 text-gray-600"></i>
+                        Misa de Cuerpo Presente
+                    </h3>
+                    <p class="text-xs text-gray-500">23 de Noviembre, 2025</p>
+                </div>
+                <div class="relative w-full pb-[56.25%] rounded-lg overflow-hidden shadow-xl bg-black">
+                    <!-- VIDEO NUEVO: Misa -->
+                    <iframe 
+                        class="absolute top-0 left-0 w-full h-full"
+                        src="https://www.youtube.com/embed/iYKIj00PJEA?controls=1" 
+                        title="Misa de Cuerpo Presente" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </section>
+
+        </div>
 
         <!-- QR Code Section & SHARE -->
         <section class="bg-white p-8 rounded-lg shadow-md mb-12 text-center border-t border-gray-100 no-print">
