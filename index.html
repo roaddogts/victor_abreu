@@ -62,10 +62,52 @@
             position: absolute;
             left: 0;
         }
+
+        /* ESTILOS DE IMPRESIÓN MEJORADOS */
         @media print {
-            .no-print { display: none; }
-            body { background: white; }
-            .shadow-xl, .shadow-lg { box-shadow: none; }
+            .no-print { display: none !important; }
+            body { 
+                background: white; 
+                color: black; 
+                font-size: 12pt;
+            }
+            .shadow-xl, .shadow-lg, .shadow-md { box-shadow: none !important; border: 1px solid #ddd; }
+            
+            /* Ajustes para el Header en impresión (ahorrar tinta y espacio) */
+            .hero-bg {
+                background: none !important;
+                color: black !important;
+                height: auto !important;
+                min-height: auto !important;
+                padding-top: 1rem !important;
+                padding-bottom: 1rem !important;
+                border-bottom: 2px solid #000;
+            }
+            .hero-bg h1, .hero-bg p, .hero-bg span, .hero-bg div {
+                color: black !important;
+                text-shadow: none !important;
+            }
+            .hero-bg .bg-amber-500 {
+                background-color: #000 !important;
+            }
+
+            /* EVITAR CORTES DE PÁGINA */
+            section, .break-inside-avoid, .bg-white, article {
+                break-inside: avoid;
+                page-break-inside: avoid; /* Para navegadores antiguos */
+                margin-bottom: 2rem;
+            }
+            
+            /* Forzar texto negro puro */
+            p, h1, h2, h3, h4, li, span {
+                color: black !important;
+            }
+            
+            /* Ocultar videos al imprimir */
+            iframe { display: none; }
+            
+            /* Ajustes de márgenes */
+            main { margin-top: 0 !important; padding-top: 0 !important; }
         }
     </style>
 </head>
@@ -92,7 +134,7 @@
     <main class="flex-grow container mx-auto px-4 py-12 max-w-5xl -mt-20 z-20 relative">
         
         <!-- Intro Card -->
-        <div class="bg-white rounded-lg shadow-xl p-8 md:p-12 mb-12 border-t-8 border-amber-600">
+        <div class="bg-white rounded-lg shadow-xl p-8 md:p-12 mb-12 border-t-8 border-amber-600 break-inside-avoid">
             <div class="grid md:grid-cols-3 gap-8 items-center">
                 <div class="md:col-span-1">
                     <!-- FOTO DEL SR. VÍCTOR -->
@@ -120,7 +162,7 @@
         </div>
 
         <!-- Familia -->
-        <section class="mb-12 bg-white p-8 rounded-lg shadow-md">
+        <section class="mb-12 bg-white p-8 rounded-lg shadow-md break-inside-avoid">
             <h3 class="text-2xl font-serif text-gray-800 section-title">Vida Familiar</h3>
             <p class="text-gray-700 text-lg leading-relaxed mb-4">
                 En el año 1978 contrajo matrimonio con la señora <strong>Lucía Sandoval</strong>, con quien formó una familia ejemplar. Es padre de seis hijos, todos hombres de conducta honorable y formados profesionalmente, orgullo y legado de su vida:
@@ -136,13 +178,13 @@
         </section>
 
         <!-- Trayectoria Empresarial -->
-        <section class="mb-12">
+        <section class="mb-12 break-inside-avoid">
             <div class="flex items-center mb-6">
                 <i data-lucide="briefcase" class="text-amber-600 w-8 h-8 mr-3"></i>
                 <h3 class="text-3xl font-serif text-gray-800 m-0">Empresas Fundadas</h3>
             </div>
             
-            <div class="bg-white p-8 rounded-lg shadow-md border-l-4 border-amber-600 mb-8">
+            <div class="bg-white p-8 rounded-lg shadow-md border-l-4 border-amber-600 mb-8 break-inside-avoid">
                 <p class="mb-4 text-gray-700 text-lg">
                     <strong>Industria de Alimentos y Veterinaria Abreu, hoy Agropecuaria Abreu S.A.S.</strong> (fundada en 1980), donde se desempeñó como presidente hasta su fallecimiento.
                 </p>
@@ -172,7 +214,7 @@
         </section>
 
         <!-- Reconocimientos Destacados -->
-        <section class="mb-12 bg-gray-800 text-white rounded-xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+        <section class="mb-12 bg-gray-800 text-white rounded-xl p-8 md:p-12 shadow-2xl relative overflow-hidden break-inside-avoid">
             <div class="absolute top-0 right-0 opacity-10 transform translate-x-10 -translate-y-10">
                 <i data-lucide="award" class="w-64 h-64 text-white"></i>
             </div>
@@ -213,10 +255,10 @@
         </section>
 
         <!-- Liderazgo Institucional y Social -->
-        <div class="grid md:grid-cols-2 gap-8 mb-16">
+        <div class="grid md:grid-cols-2 gap-8 mb-16 break-inside-avoid">
             
             <!-- Instituciones -->
-            <div class="bg-white p-8 rounded-lg shadow-lg card-hover">
+            <div class="bg-white p-8 rounded-lg shadow-lg card-hover break-inside-avoid">
                 <h3 class="text-xl font-serif font-bold text-gray-800 mb-6 flex items-center">
                     <i data-lucide="building-2" class="mr-2 text-gray-500"></i>
                     Instituciones a las que perteneció
@@ -228,7 +270,8 @@
                     <li>Accionista del Centro de Especialidades Dr. Gregorio Hernández – Moca</li>
                     <li>Miembro directivo de la Asociación Dominicana de Avicultores (ADA) – Santo Domingo</li>
                     <li>Miembro directivo de la Federación Dominicana de Porcicultores (FEDOPORC) – Moca</li>
-                    <li>Miembro directivo de COB Caribe, S.A. (Producción Abuelas) – Santiago</li>
+                    <li>Miembro del Patronato Dominicano de Ganaderos – Santo Domingo</li>
+                    <li>Miembro directivo de Cobb Caribe, S.A. – Santiago</li>
                     <li>Socio directivo de Gallinas Reproductoras Livianas (GARELI) – Moca</li>
                     <li>Miembro directivo del Consejo Nacional de Producción Pecuaria (CONAPROPE) – Santo Domingo</li>
                     <li>Miembro directivo de la Comisión Nacional de Producción de Sorgo y Maíz del Ministerio de Agricultura</li>
@@ -238,7 +281,7 @@
             </div>
 
             <!-- Aporte Social -->
-            <div class="bg-white p-8 rounded-lg shadow-lg card-hover flex flex-col">
+            <div class="bg-white p-8 rounded-lg shadow-lg card-hover flex flex-col break-inside-avoid">
                 <h3 class="text-xl font-serif font-bold text-gray-800 mb-6 flex items-center">
                     <i data-lucide="heart-handshake" class="mr-2 text-gray-500"></i>
                     Aporte Social
@@ -258,7 +301,7 @@
         </div>
 
         <!-- Sección de Fallecimiento -->
-        <section class="mb-16 max-w-4xl mx-auto">
+        <section class="mb-16 max-w-4xl mx-auto break-inside-avoid">
             <div class="bg-gray-100 border-l-8 border-gray-800 rounded-r-lg p-8 shadow-sm">
                 <div class="flex items-start">
                     <i data-lucide="sunset" class="w-10 h-10 text-gray-600 mr-4 mt-1"></i>
@@ -274,7 +317,7 @@
         </section>
 
         <!-- Sección de Video -->
-        <section class="mb-16">
+        <section class="mb-16 no-print">
             <div class="text-center mb-6">
                 <h3 class="text-2xl font-serif text-gray-800">Video Conmemorativo</h3>
             </div>
@@ -295,7 +338,7 @@
             </div>
         </section>
 
-        <!-- QR Code Section -->
+        <!-- QR Code Section & SHARE -->
         <section class="bg-white p-8 rounded-lg shadow-md mb-12 text-center border-t border-gray-100 no-print">
             <h3 class="text-lg font-bold mb-2 text-gray-800">Compartir esta Historia</h3>
             <p class="text-gray-500 mb-6 text-sm">Escanee para ver en móvil</p>
@@ -304,16 +347,27 @@
                 <div id="qrcode" class="p-2 bg-white border border-gray-200 rounded"></div>
             </div>
             
-            <button onclick="window.print()" class="mt-4 inline-flex items-center px-6 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition duration-300 text-sm font-medium">
-                <i data-lucide="printer" class="w-4 h-4 mr-2"></i>
-                Imprimir Documento
-            </button>
+            <div class="flex flex-col md:flex-row justify-center gap-4 mt-6">
+                <!-- Botón de WhatsApp -->
+                <a href="https://wa.me/?text=In%20Memoriam%20-%20Sr.%20V%C3%ADctor%20Abreu%20https%3A%2F%2Fvictorabreu.netlify.app%2F" 
+                   target="_blank"
+                   class="inline-flex items-center justify-center px-6 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition duration-300 text-sm font-medium">
+                    <i data-lucide="message-circle" class="w-4 h-4 mr-2"></i>
+                    Compartir por WhatsApp
+                </a>
+
+                <!-- Botón de Imprimir -->
+                <button onclick="window.print()" class="inline-flex items-center justify-center px-6 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition duration-300 text-sm font-medium">
+                    <i data-lucide="printer" class="w-4 h-4 mr-2"></i>
+                    Imprimir Documento
+                </button>
+            </div>
         </section>
 
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-12 text-center mt-auto border-t border-gray-800">
+    <footer class="bg-gray-900 text-gray-400 py-12 text-center mt-auto border-t border-gray-800 no-print">
         <div class="container mx-auto px-4">
             <h4 class="font-serif text-xl text-white mb-2">Familia Abreu Sandoval</h4>
             <p class="text-sm opacity-60">Honrando un legado de trabajo y servicio.</p>
