@@ -64,48 +64,56 @@
             left: 0;
         }
 
-        /* ESTILOS DE IMPRESIÓN MEJORADOS */
+        /* ESTILOS DE IMPRESIÓN: compacto, pensado para pocas páginas tamaño carta */
+        @page { size: letter; margin: 1.5cm 1.6cm; }
         @media print {
-            .no-print { display: none !important; }
-            body { 
-                background: white; 
-                color: black; 
-                font-size: 12pt;
-            }
-            .shadow-xl, .shadow-lg, .shadow-md { box-shadow: none !important; border: 1px solid #ddd; }
-            
-            /* Ajustes para el Header en impresión */
-            .hero-bg {
-                background: none !important;
-                color: black !important;
-                height: auto !important;
-                min-height: auto !important;
-                padding-top: 1rem !important;
-                padding-bottom: 1rem !important;
-                border-bottom: 2px solid #000;
-            }
-            .hero-bg h1, .hero-bg p, .hero-bg span, .hero-bg div {
-                color: black !important;
-                text-shadow: none !important;
-            }
-            .hero-bg .bg-amber-500 {
-                background-color: #000 !important;
-            }
-
-            /* EVITAR CORTES DE PÁGINA */
-            section, .break-inside-avoid, .bg-white, article {
-                break-inside: avoid;
-                page-break-inside: avoid;
-                margin-bottom: 2rem;
-            }
-            
-            p, h1, h2, h3, h4, li, span {
-                color: black !important;
-            }
-            
-            iframe { display: none; }
-            
-            main { margin-top: 0 !important; padding-top: 0 !important; }
+            .no-print, iframe { display: none !important; }
+            html, body { background: #fff !important; }
+            body { font-size: 10.5pt !important; line-height: 1.4 !important; color: #000 !important; }
+            p, h1, h2, h3, h4, li, span, strong, div { color: #000 !important; }
+            *, *::before, *::after { box-shadow: none !important; text-shadow: none !important; }
+            img, .card-hover { transform: none !important; transition: none !important; }
+            .hero-bg { background: none !important; min-height: 0 !important; height: auto !important; padding: 0 0 0.4rem !important; border-bottom: 2px solid #000; }
+            .hero-bg h1 { font-size: 22pt !important; line-height: 1.15 !important; margin-bottom: 0.2rem !important; }
+            .hero-bg h1 br, .hero-bg .w-32 { display: none !important; }
+            .hero-bg span { margin-bottom: 0.2rem !important; }
+            .hero-bg p { font-size: 11pt !important; }
+            .hero-bg .mt-8 { margin-top: 0.2rem !important; }
+            main { margin: 0 !important; padding: 0.5rem 0 0 !important; max-width: none !important; }
+            .p-8, .md\:p-12, .p-4, .p-3 { padding: 0.35rem 0.5rem !important; }
+            .mb-16, .mb-12, .mb-8 { margin-bottom: 0.5rem !important; }
+            .mb-6, .mb-4 { margin-bottom: 0.35rem !important; }
+            .mt-6, .mt-4 { margin-top: 0.35rem !important; }
+            .mt-auto { margin-top: 0.4rem !important; }
+            .pb-4 { padding-bottom: 0.15rem !important; }
+            .space-y-8 > * + * { margin-top: 0.45rem !important; }
+            .space-y-3 > * + *, .space-y-4 > * + * { margin-top: 0.1rem !important; }
+            ul.custom-list li { margin-bottom: 0.1rem !important; }
+            .gap-8 { gap: 0.8rem !important; } .gap-6 { gap: 0.5rem !important; } .gap-4 { gap: 0.3rem !important; }
+            .rounded-lg, .rounded-xl, .rounded-r-lg, .rounded { border-radius: 0 !important; }
+            .bg-white, .bg-gray-800, .bg-gray-100, .bg-gray-50, .bg-gray-200, .bg-green-50, .bg-amber-600, .bg-gray-700 { background: none !important; }
+            .border-t-8 { border-top-width: 2px !important; }
+            .border-l-8, .border-l-4 { border-left-width: 2px !important; }
+            section, article, .break-inside-avoid, .bg-white { break-inside: auto !important; page-break-inside: auto !important; }
+            h2, h3, h4 { break-after: avoid; page-break-after: avoid; }
+            li { break-inside: avoid; }
+            p { orphans: 3; widows: 3; }
+            h2 { font-size: 15pt !important; margin-bottom: 0.35rem !important; }
+            h3 { font-size: 13.5pt !important; margin-bottom: 0.35rem !important; }
+            h4 { font-size: 11.5pt !important; margin-bottom: 0.1rem !important; }
+            .text-lg, .text-base, .text-sm, .md\:text-base { font-size: 10.5pt !important; }
+            .section-title { margin-bottom: 0.6rem !important; }
+            .section-title::after { bottom: -4px !important; height: 2px !important; background: #000 !important; }
+            main > div:first-child > .grid { display: grid !important; grid-template-columns: 4.2cm 1fr !important; gap: 0.8rem !important; align-items: start !important; }
+            main > div:first-child > .grid > * { grid-column: auto !important; }
+            main > div:first-child .aspect-\[3\/4\] { width: 4.2cm !important; }
+            .md\:grid-cols-2 { grid-template-columns: 1fr 1fr !important; }
+            .md\:grid-cols-3 { grid-template-columns: repeat(3, 1fr) !important; }
+            .md\:flex-row { flex-direction: row !important; }
+            section > .absolute.top-0.right-0 { display: none !important; }
+            main svg { width: 14px !important; height: 14px !important; }
+            .rounded-full.p-3 { padding: 0.15rem !important; }
+            .max-w-4xl { max-width: none !important; }
         }
     </style>
 </head>
