@@ -95,6 +95,8 @@
             .border-t-8 { border-top-width: 2px !important; }
             .border-l-8, .border-l-4 { border-left-width: 2px !important; }
             section, article, .break-inside-avoid, .bg-white { break-inside: auto !important; page-break-inside: auto !important; }
+            /* Secciones cortas: siempre completas en una misma página */
+            main > section, main > section.bg-white { break-inside: avoid !important; page-break-inside: avoid !important; }
             h2, h3, h4 { break-after: avoid; page-break-after: avoid; }
             li { break-inside: avoid; }
             p { orphans: 3; widows: 3; }
