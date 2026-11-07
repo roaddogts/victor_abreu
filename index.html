@@ -450,8 +450,8 @@
             });
 
             // LÓGICA DEL CONTADOR DE VISITAS
-            // Usando counterapi.dev que es más estable y rápido
-            const counterUrl = 'https://api.counterapi.dev/v1/victor-abreu-memorial/visitas/up';
+            // Abacus (gratis, sin cuenta). counterapi.dev v1 dejó de funcionar en agosto de 2026
+            const counterUrl = 'https://abacus.jasoncameron.dev/hit/victorabreu-netlify/visitas';
             
             fetch(counterUrl)
                 .then(response => {
@@ -459,7 +459,7 @@
                     return response.json();
                 })
                 .then(data => {
-                    document.getElementById('contador-visitas').innerText = data.count;
+                    document.getElementById('contador-visitas').innerText = data.value;
                 })
                 .catch(err => {
                     console.error("Error al cargar contador:", err);
