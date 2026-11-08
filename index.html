@@ -64,19 +64,20 @@
             left: 0;
         }
 
-        /* ESTILOS DE IMPRESIÓN: compacto, pensado para pocas páginas tamaño carta */
+        /* ESTILOS DE IMPRESIÓN: compacto y en flujo normal (sin flex ni grid) para que no se corte entre hojas */
         @page { size: letter; margin: 1.5cm 1.6cm; }
         @media print {
-            .no-print, iframe { display: none !important; }
             html, body { background: #fff !important; }
+            body, header, main { display: block !important; min-height: 0 !important; height: auto !important; }
             body { font-size: 10.5pt !important; line-height: 1.4 !important; color: #000 !important; }
             p, h1, h2, h3, h4, li, span, strong, div { color: #000 !important; }
             *, *::before, *::after { box-shadow: none !important; text-shadow: none !important; }
             img, .card-hover { transform: none !important; transition: none !important; }
-            .hero-bg { background: none !important; min-height: 0 !important; height: auto !important; padding: 0 0 0.4rem !important; border-bottom: 2px solid #000; }
+            section.overflow-hidden { overflow: visible !important; }
+            .hero-bg { background: none !important; padding: 0 0 0.4rem !important; border-bottom: 2px solid #000; }
             .hero-bg h1 { font-size: 22pt !important; line-height: 1.15 !important; margin-bottom: 0.2rem !important; }
             .hero-bg h1 br, .hero-bg .w-32 { display: none !important; }
-            .hero-bg span { margin-bottom: 0.2rem !important; }
+            .hero-bg span { display: block; margin-bottom: 0.2rem !important; }
             .hero-bg p { font-size: 11pt !important; }
             .hero-bg .mt-8 { margin-top: 0.2rem !important; }
             main { margin: 0 !important; padding: 0.5rem 0 0 !important; max-width: none !important; }
@@ -89,7 +90,6 @@
             .space-y-8 > * + * { margin-top: 0.45rem !important; }
             .space-y-3 > * + *, .space-y-4 > * + * { margin-top: 0.1rem !important; }
             ul.custom-list li { margin-bottom: 0.1rem !important; }
-            .gap-8 { gap: 0.8rem !important; } .gap-6 { gap: 0.5rem !important; } .gap-4 { gap: 0.3rem !important; }
             .rounded-lg, .rounded-xl, .rounded-r-lg, .rounded { border-radius: 0 !important; }
             .bg-white, .bg-gray-800, .bg-gray-100, .bg-gray-50, .bg-gray-200, .bg-green-50, .bg-amber-600, .bg-gray-700 { background: none !important; }
             .border-t-8 { border-top-width: 2px !important; }
@@ -106,16 +106,20 @@
             .text-lg, .text-base, .text-sm, .md\:text-base { font-size: 10.5pt !important; }
             .section-title { margin-bottom: 0.6rem !important; }
             .section-title::after { bottom: -4px !important; height: 2px !important; background: #000 !important; }
-            main > div:first-child > .grid { display: grid !important; grid-template-columns: 4.2cm 1fr !important; gap: 0.8rem !important; align-items: start !important; }
-            main > div:first-child > .grid > * { grid-column: auto !important; }
-            main > div:first-child .aspect-\[3\/4\] { width: 4.2cm !important; }
-            .md\:grid-cols-2 { grid-template-columns: 1fr 1fr !important; }
-            .md\:grid-cols-3 { grid-template-columns: repeat(3, 1fr) !important; }
+            /* Rejillas convertidas a flujo normal para que se partan bien entre hojas */
+            .grid:not(.no-print) { display: block !important; }
+            main > div:first-child > .grid > :first-child { float: left; width: 4.2cm !important; margin: 0 0.8rem 0.3rem 0 !important; }
+            main > div:first-child > .grid::after { content: ""; display: block; clear: both; }
+            .grid.mt-6 > * { display: inline-flex !important; vertical-align: top; width: 48% !important; margin: 0 1% 0.2rem 0 !important; }
+            .grid.mt-6.text-center > * { display: inline-block !important; width: 31.5% !important; }
+            .card-hover { display: block !important; margin-bottom: 0.5rem !important; }
             .md\:flex-row { flex-direction: row !important; }
             section > .absolute.top-0.right-0 { display: none !important; }
             main svg { width: 14px !important; height: 14px !important; }
             .rounded-full.p-3 { padding: 0.15rem !important; }
             .max-w-4xl { max-width: none !important; }
+            /* Al final para que nada lo anule: videos, QR y botones no se imprimen */
+            .no-print, .no-print *, iframe { display: none !important; }
         }
     </style>
 </head>
